@@ -3,7 +3,7 @@ Create a graphical user interface to compute a hacker's t-test.
 
 __Due: Tuesday March 31, noon, code on github, HTTPS link on D2L__
 
-Author: Yves Pauchard
+Author: Rahian Islam
 
 # Problem statement
 We would like to compute whether measurements of two groups are different. As an example, we could ask if students that had prior Python experience did better in this course midterm, than students that did not have this experience. The computation needed is called a [t-test](https://en.wikipedia.org/wiki/Student's_t-test).
