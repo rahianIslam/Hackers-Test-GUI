@@ -47,7 +47,7 @@ class HistogramFrame(ttk.Frame):
         
         self.grpB = tk.Text(self, width = 10, height= 5)
         
-        self.pval = tk.Text(self, width = 5, height= 1)
+        self.pval = tk.Text(self, width = 10, height= 1)
         
 
 
@@ -68,8 +68,8 @@ class HistogramFrame(ttk.Frame):
 
     def valcheck(self):
         #raeding each value from the text box of both the groups and extracting them
-        self.groupa = self.grpA.get('1.0','end-1c').split()
-        self.groupb = self.grpB.get('1.0','end-1c').split()
+        self.groupa = self.grpA.get('1.0',tk.END+'-1c').split()
+        self.groupb = self.grpB.get('1.0',tk.END+'-1c').split()
         # self.pValue()
 
         # if len(self.groupa)!= 0 and len(self.groupb)!= 0:
@@ -130,6 +130,7 @@ class HistogramFrame(ttk.Frame):
             self.diflist.append(meanA-meanB)
 
             p = sum( i >= self.diff for i in self.diflist)/simNum
+            print(p)
             self.pval.insert('1.0',p)
 
             self.Hist()
@@ -144,6 +145,7 @@ class HistogramFrame(ttk.Frame):
         self.ax.set_xlabel('Difference in score')
         self.ax.set_ylabel('Number')
         self.ax.plot((self.diff, self.diff),(0,700),color = 'red')
+        print(self.pval)
         self.ax.annotate('%2.f%%' % (float(self.pval.get('1.0', 'end'+'-1c'))*100),
                     xytext = (15, 350),
                     xy = (6.6,350),
